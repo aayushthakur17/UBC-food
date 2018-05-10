@@ -6,14 +6,15 @@ faculty to access menus and food services information, share feedback, and promo
 a healthy and collaborative approach to on-campus dining.
 
 ## Logistics and Schedule
-Our initial will be to create a social app available for iOS
+Our initial goal will be to create a social app available for iOS
 and Android smartphones. The prototype will be be exhibited here, alongside the source code.
 
 ## Features List
 ### Prototype
 * Interface allowing user to pick a dining location, which will then open information
 about hours, menu etc.
-* Query system for fetching information (Internet or Hard code TBD)
+* Query system for fetching information (if api exists) OR
+* crowd sourced information and dialogues system
 
 ### Long-Term
 * Review system for locations and specific food items.
