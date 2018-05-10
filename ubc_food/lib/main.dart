@@ -25,6 +25,9 @@ class HomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<HomePage> {
+
+  final List<String> _locations = ["Totem", "Open Kitchen", "Gather"];
+
   @override
   Widget build(BuildContext context) {
     return new Scaffold(
@@ -32,7 +35,21 @@ class _MyHomePageState extends State<HomePage> {
           title: new Text(widget.title),
         ),
         body: new Center(
-          child: new Text("stuff to go here"),
+          child: new ListView(
+            children: _buildLocationViews(),
+          )
         ));
+  }
+
+  List<Widget> _buildLocationViews() {
+    List<Widget> views = new List<Widget>();
+    for (String name in _locations) {
+      views.add(new Card(
+        child: new ListTile(
+          title: new Text(name)
+        )
+      ));
+    }
+    return views;
   }
 }
