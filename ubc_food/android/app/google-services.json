@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "441501902269",
+    "firebase_url": "https://ubc-food.firebaseio.com",
+    "project_id": "ubc-food",
+    "storage_bucket": "ubc-food.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:441501902269:android:e67d4e83d57ec3f7",
+        "android_client_info": {
+          "package_name": "com.rowlindsay.ubc.food.ubcfood"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "441501902269-2pe94oifntj9uqcjvcrflgek1kl7a4ao.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAgAeCYV5-nrjCiToX2Rfrv3pCx0UsTKUg"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

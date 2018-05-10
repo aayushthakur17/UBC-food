@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 
 void main() => runApp(new FoodApp());
 
@@ -8,7 +9,8 @@ class FoodApp extends StatelessWidget {
     return new MaterialApp(
       title: 'UBC Food',
       theme: new ThemeData(
-        primarySwatch: Colors.lightGreen,
+        primarySwatch: Colors.lightBlue,
+        primaryColorBrightness: Brightness.light,
       ),
       home: new HomePage(title: 'UBC Food Locations'),
     );
@@ -26,7 +28,7 @@ class HomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<HomePage> {
 
-  final List<String> _locations = ["Totem", "Open Kitchen", "Gather"];
+  Location activeLocation;
 
   @override
   Widget build(BuildContext context) {
@@ -34,22 +36,61 @@ class _MyHomePageState extends State<HomePage> {
         appBar: new AppBar(
           title: new Text(widget.title),
         ),
-        body: new Center(
-          child: new ListView(
-            children: _buildLocationViews(),
-          )
+        body: new StreamBuilder(
+            stream: Firestore.instance.collection('locations').snapshots(),
+            builder: (context, snapshot) {
+              if (!snapshot.hasData) return const Text('Loading...');
+              return new ListView.builder(
+                  itemCount: snapshot.data.documents.length,
+                  itemBuilder: (context, index) {
+                    DocumentSnapshot ds = snapshot.data.documents[index];
+                    return _buildLocationCard(context, new Location(
+                        name: ds['name'],
+                        location: ds['location'],
+                        logo: new Image.asset(ds['logo_url'])
+                    ));
+                  });
+            }));
+  }
+
+  Widget _buildLocationCard(BuildContext context, Location lc) {
+    return new Card(
+        child: new ListTile(
+          leading: lc.logo,
+          title: new Text(lc.name),
+          subtitle: new Text(lc.location),
+          onTap: () {
+            setState(() {
+              activeLocation = lc;
+            });
+            _pushLocationScreen();
+          },
         ));
   }
 
-  List<Widget> _buildLocationViews() {
-    List<Widget> views = new List<Widget>();
-    for (String name in _locations) {
-      views.add(new Card(
-        child: new ListTile(
-          title: new Text(name)
-        )
-      ));
-    }
-    return views;
+  void _pushLocationScreen() {
+    Navigator.of(context).push(
+      new MaterialPageRoute(
+          builder: (context) {
+            return new Scaffold(
+              appBar: new AppBar(
+                title: new Text(activeLocation.name),
+              ),
+              body: new Text('nothing here yet'),
+            );
+          })
+    );
   }
+
+}
+
+// MODELS
+
+class Location {
+
+  String name, location;
+  Image logo;
+
+  Location({this.name = "", this.location = "", this.logo});
+
 }
