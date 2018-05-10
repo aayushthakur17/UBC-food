@@ -18,3 +18,8 @@ about hours, menu etc.
 ### Long-Term
 * Review system for locations and specific food items.
 * Behind-the-scenes view for food services to view feedback and other stats
+
+## Running
+The currently running version of the app uses the Flutter framework and is written in Dart. To compile and run, configure flutter and an emulator on your machine.
+### Additional Dependencies
+None so far
