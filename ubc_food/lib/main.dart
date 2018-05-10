@@ -84,14 +84,21 @@ class _MyHomePageState extends State<HomePage> {
                   return new Card(
                     child: new ListTile(
                       title: new Text(item.name),
-                      subtitle: new Text('Rating: ${item.rating}'),
+                      subtitle: new Text('Rating: ${item.rating}/5'),
                     )
                   );
                 },
-              )
+              ),
+              floatingActionButton: new FloatingActionButton(
+                  child: new Icon(Icons.add),
+                  onPressed: _addMenuItem),
             );
           })
     );
+  }
+
+  _addMenuItem() {
+    // TODO: implement
   }
 
 }

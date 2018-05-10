@@ -21,6 +21,6 @@ about hours, menu etc.
 * Behind-the-scenes view for food services to view feedback and other stats
 
 ## Running
-The currently running version of the app uses the Flutter framework and is written in Dart. To compile and run, configure flutter and an emulator on your machine.
+The currently running version of the app uses the Flutter framework and is written in Dart. Requires flutter and an emulator to be installed.
 ### Additional Dependencies
 Google Firebase for data storage (see pubspec)
