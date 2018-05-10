@@ -23,4 +23,4 @@ about hours, menu etc.
 ## Running
 The currently running version of the app uses the Flutter framework and is written in Dart. To compile and run, configure flutter and an emulator on your machine.
 ### Additional Dependencies
-None so far
+Google Firebase for data storage (see pubspec)

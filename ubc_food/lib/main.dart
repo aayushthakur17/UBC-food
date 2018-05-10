@@ -45,6 +45,7 @@ class _MyHomePageState extends State<HomePage> {
                   itemBuilder: (context, index) {
                     DocumentSnapshot ds = snapshot.data.documents[index];
                     return _buildLocationCard(context, new Location(
+                        ds['menu'], // TODO: handle items as separate stream?
                         name: ds['name'],
                         location: ds['location'],
                         logo: new Image.asset(ds['logo_url'])
@@ -76,7 +77,18 @@ class _MyHomePageState extends State<HomePage> {
               appBar: new AppBar(
                 title: new Text(activeLocation.name),
               ),
-              body: new Text('nothing here yet'),
+              body: new ListView.builder(
+                itemCount: activeLocation.menu.length,
+                itemBuilder: (context, index) {
+                  MenuItem item = activeLocation.menu[index];
+                  return new Card(
+                    child: new ListTile(
+                      title: new Text(item.name),
+                      subtitle: new Text('Rating: ${item.rating}'),
+                    )
+                  );
+                },
+              )
             );
           })
     );
@@ -89,8 +101,27 @@ class _MyHomePageState extends State<HomePage> {
 class Location {
 
   String name, location;
-  Image logo;
+  Widget logo;
+  List<MenuItem> menu;
 
-  Location({this.name = "", this.location = "", this.logo});
+  Location(menuItems, {this.name = "default location", this.location = "default place",
+    this.logo = const Icon(Icons.clear)}) {
+    menu = new List<MenuItem>();
+    for (Map menuItem in menuItems) {
+      menu.add(new MenuItem(
+        name: menuItem['name'],
+        rating: menuItem['rating']
+      ));
+    }
+  }
 
+}
+
+class MenuItem {
+  
+  String name;
+  int rating;
+  
+  MenuItem({this.name = "default menu item",this.rating = 0});
+  
 }
