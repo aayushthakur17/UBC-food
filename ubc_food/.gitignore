@@ -12,3 +12,5 @@ build/
 *.ipr
 *.iws
 .idea/
+
+pubspec.lock
