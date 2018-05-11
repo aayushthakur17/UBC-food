@@ -24,3 +24,6 @@ about hours, menu etc.
 The currently running version of the app uses the Flutter framework and is written in Dart. Requires flutter and an emulator to be installed.
 ### Additional Dependencies
 Google Firebase for data storage (see pubspec)
+
+## Task List
+Currently, tasks are limited to todos in the source code. See the ubc_food app directory.
