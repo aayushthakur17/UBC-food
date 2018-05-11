@@ -11,6 +11,11 @@ build/
 *.iml
 *.ipr
 *.iws
-.idea/
+
+.idea/checkstyles-idea.xml
+.idea/libraries
+.idea/codeStyles
+.idea/misc.xml
+.idea/runConfigurations
 
 pubspec.lock
