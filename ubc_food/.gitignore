@@ -16,6 +16,6 @@ build/
 .idea/libraries
 .idea/codeStyles
 .idea/misc.xml
-.idea/runConfigurations
+.idea/workspace.xml
 
 pubspec.lock
