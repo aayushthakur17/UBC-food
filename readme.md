@@ -1,7 +1,7 @@
 # UBC FOOD
 
 ## What is this?
-The goal of this project is to create a one-stop platform for UBC students and
+The goal of this project is to create a one-stop platform for university students and
 faculty to access menus and food services information, share feedback, and promote
 a healthy and collaborative approach to on-campus dining.
 
